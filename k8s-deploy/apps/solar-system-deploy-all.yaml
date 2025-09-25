@@ -51,7 +51,7 @@ spec:
         app: solar-system
     spec:
       containers:
-      - image: harbor-registry.vrack.vsphere.local/solar-system/solar-system:v9
+        - image: mirror.gcr.io/siddharth67/solar-system:v9
         name: solar-system
         imagePullPolicy: IfNotPresent
         ports:
