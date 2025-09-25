@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- namespace.yaml
+- certificate.yaml
+- ingress.yaml
+- ../../base
+
+namespace: solar-system-uat
+
+labels:
+- includeSelectors: true
+  pairs:
+    environment: test
+
+nameSuffix: -uat
+
+images:
+- name: harborsupervisor.corp.internal/solar-system/solar-system
+  newTag: v7

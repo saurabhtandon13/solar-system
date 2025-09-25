@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: solar-system-selfsigned-cert
+spec:
+  isCA: true
+  commonName: solarsystem.cloudapps.corp.internal
+  secretName: solar-system-cert-tls
+  dnsNames:
+    - solarsystem.cloudapps.corp.internal
+  duration: 8760h
+  renewBefore: 240h
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  issuerRef:
+    name: solar-system-selfsigned-issuer-prod
+    kind: Issuer
+    group: cert-manager.io
